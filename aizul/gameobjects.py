@@ -5,3 +5,6 @@ class Bag:
     
 class Tile:
     raise NotImplementedError
+
+class Location:
+    raise NotImplementedError
