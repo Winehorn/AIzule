@@ -7,11 +7,17 @@ class Color(Enum):
     BLACK = 4
     WHITE = 5
 
+
 class Bag:
-    raise NotImplementedError
-    
+    pass
+
 class Tile:
-    raise NotImplementedError
+    def __init__(self, color: Color):
+        if(isinstance(color, Color)):
+            self.color = color
+        else:
+            raise TypeError("Tile color has to be of type Color")
+
 
 class Location:
-    raise NotImplementedError
+    pass
