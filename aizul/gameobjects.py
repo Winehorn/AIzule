@@ -19,5 +19,5 @@ class Tile:
             raise TypeError("Tile color has to be of type Color")
 
 
-class Location:
+class TileCollection:
     pass
