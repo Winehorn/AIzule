@@ -19,3 +19,4 @@ wrapt = "==1.10.11"
 
 [dev-packages]
 
+pylint = "*"
