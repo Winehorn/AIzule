@@ -14,3 +14,10 @@ class GameController:
         self.factories = [go.Factory() for _ in range(self.num_factories)]
         for factory in self.factories:
             factory.tiles = self.bag.draw_tiles(4)
+
+    def get_full_factories(self):
+        full_factories = []
+        for i, factory in enumerate(self.factories):
+            if len(factory.tiles) == 4:
+                full_factories.append(i)
+        return full_factories
