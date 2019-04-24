@@ -1,4 +1,5 @@
 import aizul.gameobjects as go
+from aizul.gameobjects import Color
 
 class GameController:
     def __init__(self, num_players=4):

@@ -21,11 +21,12 @@ class Bag:
         random.shuffle(self.tiles)
 
     def print_remaining(self):
-        '''Prints color of remaining tiles.'''
+        '''Print color of remaining tiles.'''
         for tile in self.tiles:
             print(tile)
 
     def draw_tiles(self, number=4):
+        '''Return tiles and refills the bag if it gets empty.'''
         tiles = []
         for _ in range(number):
             if len(self.tiles) == 0:
@@ -34,6 +35,7 @@ class Bag:
         return tiles
 
     def refill(self):
+        '''Put unused tiles in the bag.'''
         if not self.used_tiles:
             raise IndexError("No used tiles!")
         else:
@@ -44,7 +46,7 @@ class Bag:
         '''
         Return tiles to the used tiles list.
 
-        Keyword arguments:
+        Arguments:
         tiles -- list of tiles to return
         '''
         for tile in tiles:
@@ -57,7 +59,7 @@ class Tile:
         if(isinstance(color, Color)):
             self.color = color
         else:
-            raise TypeError('Tile color has to be of type Color')
+            raise TypeError('Tile color has to be of type Color!')
 
     def __repr__(self):
         return self.color.name
@@ -66,3 +68,18 @@ class Tile:
 class Factory:
     def __init__(self):
         self.tiles = []
+
+    def pick_tiles(self, color: Color, remove_all=True):
+        '''Return tuple of tiles of specified color and remaining tiles.'''
+        picked_tiles = [tile for tile in self.tiles if tile.color == color]
+
+        if not picked_tiles:
+            raise ValueError('You can only pick available tiles!')
+
+        remaining_tiles = [tile for tile in self.tiles if tile.color != color]
+
+        if remove_all:
+            self.tiles = []
+        else:
+            self.tiles = remaining_tiles
+        return picked_tiles, remaining_tiles
