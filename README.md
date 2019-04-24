@@ -1,4 +1,5 @@
 # Aizul
+[![Build Status](https://travis-ci.org/Winehorn/Aizul.svg?branch=master)](https://travis-ci.org/Winehorn/Aizul)
 
 Python implementation of the boardgame [Azul](https://en.wikipedia.org/wiki/Azul_(board_game)).
 
