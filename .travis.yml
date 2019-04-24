@@ -8,7 +8,7 @@ install:
   - pipenv install
   
 script:
-  - unittest discover
+  - python -m unittest discover
   
 env:
   global:
