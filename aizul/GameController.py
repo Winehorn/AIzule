@@ -10,6 +10,7 @@ class GameController:
         self.num_players = num_players
 
         self.bag = go.Bag()
+        self.table = go.Factory(is_table=True)
 
         self.num_factories = num_players * 2 + 1
         self.factories = [go.Factory() for _ in range(self.num_factories)]
@@ -22,3 +23,16 @@ class GameController:
             if len(factory.tiles) == 4:
                 full_factories.append(i)
         return full_factories
+
+    def print_table(self):
+        print("Factories:")
+        full_factories = self.get_full_factories()
+        
+        for factory in full_factories:
+            print("[{}]: {x[0]}, {x[1]}, {x[2]}, {x[3]}".format(factory, x=self.factories[factory].tiles))
+        print("")
+        print("Table:")
+        for color in Color:
+            index = self.num_factories - 1 + color.value
+            num_color_tiles = self.table.tiles.count(color)
+            print("[{index}]: {color}: {num_color_tiles}".format(index=index, color= color.name, num_color_tiles=num_color_tiles))

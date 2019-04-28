@@ -66,10 +66,11 @@ class Tile:
 
 
 class Factory:
-    def __init__(self):
+    def __init__(self, is_table=False):
         self.tiles = []
+        self.is_table = is_table
 
-    def pick_tiles(self, color: Color, remove_all=True):
+    def pick_tiles(self, color: Color):
         '''Return tuple of tiles of specified color and remaining tiles.'''
         picked_tiles = [tile for tile in self.tiles if tile.color == color]
 
@@ -78,7 +79,7 @@ class Factory:
 
         remaining_tiles = [tile for tile in self.tiles if tile.color != color]
 
-        if remove_all:
+        if not self.is_table:
             self.tiles = []
         else:
             self.tiles = remaining_tiles
