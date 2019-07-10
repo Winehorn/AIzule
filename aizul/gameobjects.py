@@ -84,3 +84,10 @@ class Factory:
         else:
             self.tiles = remaining_tiles
         return picked_tiles, remaining_tiles
+
+class Player:
+    def __init__(self):
+        pass
+    
+    def pick_factory(self, factory):
+        pass

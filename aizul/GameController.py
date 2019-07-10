@@ -9,6 +9,9 @@ class GameController:
             raise ValueError("Number of players too small!")
         self.num_players = num_players
 
+        self.players = [go.Player() for _ in range(self.num_players)]
+        self.start_player = 0
+
         self.bag = go.Bag()
         self.table = go.Factory(is_table=True)
 
